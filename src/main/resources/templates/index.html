@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="${'css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <title>Chesk list</title>
+        <title>Co zabalit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,500,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styly.css">
+    </head>
+<body>
+    <div class="Hlavicka">
+        <h1 class="titulek">Co zabalit</h1>
+    </div>
+    <div class="obsah">
+        <div class="popisek">
+            Nevíte, co si vzít na dovolenou? Cestovní horečka si podmaňuje každou molekulu vašeho vědomí a kufr zatím zeje prázdnotou.
+            Bezradně se motáte okolo otevřených skříní a šuplíků? Poradime vám, co si zabalit do kufru při zájezdu k moři, na hory i co si
+            vzít na pracovni konferenci.
+            Sestavili jsme pro vás ucelený seznam věcí, které budete na vaší dovolené potřebovat, ověřený léty cestovatelské praxe.
+        </div>
+        <form method="post">
+            <div class="moznosti">
+
+                <label>
+                    <input type="radio" value="more" name="typ" ID="More">
+                    <div class="popis">
+                        <div class="foto plaz">
+                        </div>
+                        <div class="koment"> <h2>Moře</h2>
+                            <p>Co si zabalit k moři</p>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <input type="radio" value="hory" name="typ" ID="Hory">
+                    <div class="popis">
+                        <div class="foto ski">
+                        </div>
+                        <div class="koment"> <h2> Hory</h2>
+                            <p>Co si vzít na hory</p>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <input type="radio" value="konference" name="typ" ID="Konference">
+                    <div class="popis">
+                        <div class="foto praca">
+                        </div>
+                        <div class="koment">  <h2>Konference</h2>
+                            <p>Co nezapomenout na bussines trip</p>
+                        </div>
+                    </div>
+                </label>
+
+
+            </div>
+            <script>
+                var radios = document.querySelectorAll('input[type="radio"]');
+                for(var radio of radios){
+                    radio.addEventListener('input', function () {
+                        document.querySelector('form').submit();
+                    })
+                }
+            </script>
+        </form>
+        <div class="paticka">
+            &copy;2019, Hackathon
+        </div>
+    </div>
+</body>
+</html>

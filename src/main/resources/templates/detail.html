@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly2.css"
+          th:href="${'css/styly2.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+
+    <title>Checklist</title>
+    <link rel="stylesheet" type="text/css" href="styly2.css">
+
+    <script type="text/javascript"
+            src="assets/js/lib/jQuery-3.3.1.min.js"></script>
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/css/styly2.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,500,700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Tvůj seznam na dovolenou:</h1>
+    </header>
+
+    <div>
+        <div id="container">
+            <form method="post">
+                <input type="hidden" name="typ" value=""
+                       th:value="${nazevSeznamu}"/>
+                <input class="newItem" name= "novaVec" type="text"
+                       placeholder="Přidat vlastní položku">
+            </form>
+            <ul>
+                <li th:each="jednaVec : ${veciNaDovolenou}">
+                    <span class="trash"><i class="fas fa-trash-alt"></i></span>
+                    <input type="checkbox" class="check" id="item" th:id="'item' + ${jednaVec.id}">
+                    <label class="checkText" for="item" th:for="'item'
++ ${jednaVec.id}">
+                        <span class="itemText" th:text="${jednaVec.nazev}">Rukavice</span>
+                        <span class="checkBox"><i class="far fa-square"></i></span>
+                    </label>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2019 Hackathon
+    </footer>
+
+
+
+    <script type="text/javascript" src="./src/js/checklist.js"></script>
+</body>
+</html>
